@@ -1,25 +1,25 @@
 class EasyprojectMcpServer < Formula
-  desc "A Rust MCP server for the EasyProject API using JSON-RPC over stdio"
+  desc "MCP server for the Easy8 API using JSON-RPC over stdio"
   homepage "https://github.com/bighub-ai/easy8-mcp"
-  version "0.1.1"
+  version "0.1.2"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.1.1/easyproject-mcp-server-aarch64-apple-darwin.tar.xz"
-      sha256 "708a5be156acb78e59376dfac052738779f8ee881e71dca3d22820f18f2002fb"
+      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.1.2/easyproject-mcp-server-aarch64-apple-darwin.tar.xz"
+      sha256 "fac3b8c0e0fe4db99caaa668d98abe38ab79b9a19be65c8141fba64c4fab6863"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.1.1/easyproject-mcp-server-x86_64-apple-darwin.tar.xz"
-      sha256 "d1699778743c71b486cd214965284773a84c532482a0dfe6f3e19c688ef4fdf3"
+      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.1.2/easyproject-mcp-server-x86_64-apple-darwin.tar.xz"
+      sha256 "209f97356882330a90d06c23a2d000b6abb3be2a45998279c9775761798cd4a1"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.1.1/easyproject-mcp-server-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "7773201a14325f4575e24f2e40c12775e52c171e43423faef7703cd438e8291a"
+      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.1.2/easyproject-mcp-server-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "c8325d8cfeb147292aabdba8a6ff612404cb6f4c8b0d4057fed39563ae956cf6"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.1.1/easyproject-mcp-server-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "6386fca190345aaca0427233a6d834b1073e1d7e4b7957614ba6afb1cb2b30ea"
+      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.1.2/easyproject-mcp-server-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "4aaeb11d01603e09655990cdb45ed48617432b0c3f2813bc16311b2d940f70b5"
     end
   end
   license "MIT"
