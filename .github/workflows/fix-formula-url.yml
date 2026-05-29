@@ -1,0 +1,50 @@
+name: Fix Formula Release URL
+
+on:
+  push:
+    paths:
+      - 'Formula/*.rb'
+    branches:
+      - main
+
+jobs:
+  fix-url:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Check and fix formula URLs
+        id: fix
+        run: |
+          PRIVATE_REPO="bighub-ai/easy8-mcp"
+          PUBLIC_REPO="bighub-ai/easy8-mcp-releases"
+          CHANGED=false
+
+          for file in Formula/*.rb; do
+            if [ -f "$file" ] && grep -q "github.com/${PRIVATE_REPO}/releases/download" "$file"; then
+              echo "Fixing URL in $file"
+              sed -i "s|github.com/${PRIVATE_REPO}/releases/download|github.com/${PUBLIC_REPO}/releases/download|g" "$file"
+              git add "$file"
+              CHANGED=true
+            fi
+          done
+
+          if [ "$CHANGED" = "true" ]; then
+            git commit -m "fix: update release URLs to public repo [ci skip]"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Push changes
+        if: steps.fix.outputs.changed == 'true'
+        run: git push
