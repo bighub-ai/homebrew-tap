@@ -6,8 +6,6 @@ class EasyprojectMcpServer < Formula
     if Hardware::CPU.arm?
       url "https://github.com/bighub-ai/easy8-mcp-releases/releases/download/v0.1.7/easyproject-mcp-server-aarch64-apple-darwin.tar.xz"
       sha256 "791118ea3f99f9c15fc2fd5cbe5c459621e79305eb1006ad19d2640e65abcb2f"
-      generate_completions_from_executable(bin/"easyproject-mcp-server", shell_parameter_format: :clap)
-
     end
     if Hardware::CPU.intel?
       url "https://github.com/bighub-ai/easy8-mcp-releases/releases/download/v0.1.7/easyproject-mcp-server-x86_64-apple-darwin.tar.xz"
@@ -68,5 +66,6 @@ class EasyprojectMcpServer < Formula
     # Install any leftover files in pkgshare; these are probably config or
     # sample files.
     pkgshare.install(*leftover_contents) unless leftover_contents.empty?
+    generate_completions_from_executable(bin/"easyproject-mcp-server", shell_parameter_format: :clap)
   end
 end
