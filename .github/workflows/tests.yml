@@ -16,6 +16,8 @@ jobs:
             container: ghcr.io/homebrew/brew:main
     runs-on: ${{ matrix.os }}
     container: ${{ matrix.container }}
+    env:
+      HOMEBREW_NO_REQUIRE_TAP_TRUST: 1
     permissions:
       actions: read
       checks: read
