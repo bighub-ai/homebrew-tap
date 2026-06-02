@@ -4,21 +4,23 @@ class EasyprojectMcpServer < Formula
   version "0.1.7"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.1.7/easyproject-mcp-server-aarch64-apple-darwin.tar.xz"
+      url "https://github.com/bighub-ai/easy8-mcp-releases/releases/download/v0.1.7/easyproject-mcp-server-aarch64-apple-darwin.tar.xz"
       sha256 "791118ea3f99f9c15fc2fd5cbe5c459621e79305eb1006ad19d2640e65abcb2f"
+      generate_completions_from_executable(bin/"easyproject-mcp-server", shell_parameter_format: :clap)
+
     end
     if Hardware::CPU.intel?
-      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.1.7/easyproject-mcp-server-x86_64-apple-darwin.tar.xz"
+      url "https://github.com/bighub-ai/easy8-mcp-releases/releases/download/v0.1.7/easyproject-mcp-server-x86_64-apple-darwin.tar.xz"
       sha256 "74d97f3e91447d708864a9b7ee0fabeff5878374dbd820efc8cb4c084a82deaa"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.1.7/easyproject-mcp-server-aarch64-unknown-linux-gnu.tar.xz"
+      url "https://github.com/bighub-ai/easy8-mcp-releases/releases/download/v0.1.7/easyproject-mcp-server-aarch64-unknown-linux-gnu.tar.xz"
       sha256 "344cdbbdc53632cdbd0feca46261a47a47a8013c9af15a68e6e907302f74a58e"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.1.7/easyproject-mcp-server-x86_64-unknown-linux-gnu.tar.xz"
+      url "https://github.com/bighub-ai/easy8-mcp-releases/releases/download/v0.1.7/easyproject-mcp-server-x86_64-unknown-linux-gnu.tar.xz"
       sha256 "ae4a62d0cdd90fe57f7a351d317b608abdb701757fef89173f6b27da06e44477"
     end
   end
