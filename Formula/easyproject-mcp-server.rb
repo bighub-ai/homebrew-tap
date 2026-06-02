@@ -1,24 +1,25 @@
 class EasyprojectMcpServer < Formula
   desc "MCP server for the Easy8 API using JSON-RPC over stdio"
   homepage "https://github.com/bighub-ai/easy8-mcp"
-  version "0.1.5"
+  version "0.1.6"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/bighub-ai/easy8-mcp-releases/releases/download/v0.1.5/easyproject-mcp-server-aarch64-apple-darwin.tar.xz"
-      sha256 "c3c6248058648bebb1c65ad14fde0a632c6736d5285b398b252d98945876b675"
-    generate_completions_from_executable(bin/"easyproject-mcp-server", shell_parameter_format: :clap)    if Hardware::CPU.intel?
-      url "https://github.com/bighub-ai/easy8-mcp-releases/releases/download/v0.1.5/easyproject-mcp-server-x86_64-apple-darwin.tar.xz"
-      sha256 "ad719c4f5b9297d0900f3cb012839a99e6553c501c04665ac5892eadde452adb"
+      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.1.6/easyproject-mcp-server-aarch64-apple-darwin.tar.xz"
+      sha256 "2f8f59a6b54abf3f5cce4c96fc4b83fc4f6005b9471e58b130c6cd0e700e0355"
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.1.6/easyproject-mcp-server-x86_64-apple-darwin.tar.xz"
+      sha256 "3920e71183ff8eb5a2c7900f4829f6e98a39a3214029dfe9e016a5605c1f6a22"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/bighub-ai/easy8-mcp-releases/releases/download/v0.1.5/easyproject-mcp-server-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "982a855768c85f9682260ad07f1d8a372957bf60212c820f60e9c85a7244d34d"
+      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.1.6/easyproject-mcp-server-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "f8f039cab51efeb10b129d40e6f6ab888c967fe847fd5bf303e803ce046be149"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/bighub-ai/easy8-mcp-releases/releases/download/v0.1.5/easyproject-mcp-server-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "301ae6f956eff2637eaf90f5e5f4ebd5a22e8c30fe069041cdec731c10e8a0ea"
+      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.1.6/easyproject-mcp-server-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "74cfba830cc3734930496fe4bab3d94c2574b33c922e7622bc0e0c1c9173d8bd"
     end
   end
   license "MIT"
