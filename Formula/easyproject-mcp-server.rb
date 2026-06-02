@@ -1,25 +1,25 @@
 class EasyprojectMcpServer < Formula
   desc "MCP server for the Easy8 API using JSON-RPC over stdio"
   homepage "https://github.com/bighub-ai/easy8-mcp"
-  version "0.1.7"
+  version "0.1.8"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/bighub-ai/easy8-mcp-releases/releases/download/v0.1.7/easyproject-mcp-server-aarch64-apple-darwin.tar.xz"
-      sha256 "791118ea3f99f9c15fc2fd5cbe5c459621e79305eb1006ad19d2640e65abcb2f"
+      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.1.8/easyproject-mcp-server-aarch64-apple-darwin.tar.xz"
+      sha256 "17bad32c71156d9905aa16c6aba7e7cbf8a49492c429489b339dc241c5468cc8"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/bighub-ai/easy8-mcp-releases/releases/download/v0.1.7/easyproject-mcp-server-x86_64-apple-darwin.tar.xz"
-      sha256 "74d97f3e91447d708864a9b7ee0fabeff5878374dbd820efc8cb4c084a82deaa"
+      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.1.8/easyproject-mcp-server-x86_64-apple-darwin.tar.xz"
+      sha256 "19135d5866f9b64f68e23f8265aa4c2d5958e970a98928cb4ee13b690b15c738"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/bighub-ai/easy8-mcp-releases/releases/download/v0.1.7/easyproject-mcp-server-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "344cdbbdc53632cdbd0feca46261a47a47a8013c9af15a68e6e907302f74a58e"
+      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.1.8/easyproject-mcp-server-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "161db990ee65b051629f15617662f706b2592924fc7db7fc2b2c49513b88dbdc"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/bighub-ai/easy8-mcp-releases/releases/download/v0.1.7/easyproject-mcp-server-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "ae4a62d0cdd90fe57f7a351d317b608abdb701757fef89173f6b27da06e44477"
+      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.1.8/easyproject-mcp-server-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "8fde2e6711f2488eacebf1b747767ccc356b086f56852863e230175f2be912b3"
     end
   end
   license "MIT"
@@ -66,6 +66,5 @@ class EasyprojectMcpServer < Formula
     # Install any leftover files in pkgshare; these are probably config or
     # sample files.
     pkgshare.install(*leftover_contents) unless leftover_contents.empty?
-    generate_completions_from_executable(bin/"easyproject-mcp-server", shell_parameter_format: :clap)
   end
 end
