@@ -1,24 +1,25 @@
 class Easy8McpServer < Formula
   desc "MCP server for the Easy8 API using JSON-RPC over stdio"
   homepage "https://github.com/bighub-ai/easy8-mcp"
+  version "0.2.1"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/bighub-ai/easy8-mcp-releases/releases/download/v0.2.0/easyproject-mcp-server-aarch64-apple-darwin.tar.xz"
-      sha256 "5ac508952ba74653189511f9b378b0c30300df0512fe32b2468295728a22e0e9"
+      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.2.1/easy8-mcp-server-aarch64-apple-darwin.tar.xz"
+      sha256 "ad815e066789190666dc8b112911fd03282db5e3a9f59aadde1e5335f76f530d"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/bighub-ai/easy8-mcp-releases/releases/download/v0.2.0/easyproject-mcp-server-x86_64-apple-darwin.tar.xz"
-      sha256 "755e06cd48d5fd59c2fa79230bd16eccc11c8601b0af607af90965968f51fff3"
+      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.2.1/easy8-mcp-server-x86_64-apple-darwin.tar.xz"
+      sha256 "9f8419b182f2715fa93af282b9d286467649bd7c598634a6044d3f0c082801bc"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/bighub-ai/easy8-mcp-releases/releases/download/v0.2.0/easyproject-mcp-server-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "65de37e2dbd975d332731fc22c0c3337eb8a5a705fe49da33cdc6407cb73ec23"
+      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.2.1/easy8-mcp-server-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "a356eda4948b078e686c8e4a35c42c82598860f40a5d63d2fa11394ebddb9d29"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/bighub-ai/easy8-mcp-releases/releases/download/v0.2.0/easyproject-mcp-server-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "6f98d0500601337ce8f8751fb57f65dc2f99a6c4da32fd35d1ff84c3426c3e01"
+      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.2.1/easy8-mcp-server-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "5966bfb4c240a09e3101001f054dd87c58f6db91c0d38c91ef5b9ccb9c20e5d3"
     end
   end
   license "MIT"
@@ -51,11 +52,10 @@ class Easy8McpServer < Formula
   end
 
   def install
-    bin.install "easyproject-mcp-server" if OS.mac? && Hardware::CPU.arm?
-    bin.install "easyproject-mcp-server" if OS.mac? && Hardware::CPU.intel?
-    bin.install "easyproject-mcp-server" if OS.linux? && Hardware::CPU.arm?
-    bin.install "easyproject-mcp-server" if OS.linux? && Hardware::CPU.intel?
-    generate_completions_from_executable(bin/"easyproject-mcp-server", shell_parameter_format: :clap)
+    bin.install "easy8-mcp" if OS.mac? && Hardware::CPU.arm?
+    bin.install "easy8-mcp" if OS.mac? && Hardware::CPU.intel?
+    bin.install "easy8-mcp" if OS.linux? && Hardware::CPU.arm?
+    bin.install "easy8-mcp" if OS.linux? && Hardware::CPU.intel?
 
     install_binary_aliases!
 
