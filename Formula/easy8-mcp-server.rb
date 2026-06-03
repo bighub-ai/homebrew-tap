@@ -1,4 +1,4 @@
-class EasyprojectMcpServer < Formula
+class Easy8McpServer < Formula
   desc "MCP server for the Easy8 API using JSON-RPC over stdio"
   homepage "https://github.com/bighub-ai/easy8-mcp"
   if OS.mac?
