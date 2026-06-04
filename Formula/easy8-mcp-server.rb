@@ -1,24 +1,23 @@
 class Easy8McpServer < Formula
   desc "MCP server for the Easy8 API using JSON-RPC over stdio"
   homepage "https://github.com/bighub-ai/easy8-mcp"
-  version "0.2.2"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.2.2/easy8-mcp-server-aarch64-apple-darwin.tar.xz"
+      url "https://github.com/bighub-ai/easy8-mcp-releases/releases/download/v0.2.2/easy8-mcp-server-aarch64-apple-darwin.tar.xz"
       sha256 "7041ef49a3198294ce041759eadc5a2f2156ac51c0c213c964cbc580e97dfe43"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.2.2/easy8-mcp-server-x86_64-apple-darwin.tar.xz"
+      url "https://github.com/bighub-ai/easy8-mcp-releases/releases/download/v0.2.2/easy8-mcp-server-x86_64-apple-darwin.tar.xz"
       sha256 "b46d641511637f3009607b52ffc47dee1d4283115a6354d24481fb7926ea7ffe"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.2.2/easy8-mcp-server-aarch64-unknown-linux-gnu.tar.xz"
+      url "https://github.com/bighub-ai/easy8-mcp-releases/releases/download/v0.2.2/easy8-mcp-server-aarch64-unknown-linux-gnu.tar.xz"
       sha256 "dec8c8e0f30923e996b825606e378a0a1cc83a2e141917ea02777e5ffce94c81"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/bighub-ai/easy8-mcp/releases/download/v0.2.2/easy8-mcp-server-x86_64-unknown-linux-gnu.tar.xz"
+      url "https://github.com/bighub-ai/easy8-mcp-releases/releases/download/v0.2.2/easy8-mcp-server-x86_64-unknown-linux-gnu.tar.xz"
       sha256 "63be6ed114d13beee6d72efe542422978fd2a0abc2c3c84160ad43ea3c23d523"
     end
   end
@@ -56,6 +55,7 @@ class Easy8McpServer < Formula
     bin.install "easy8-mcp" if OS.mac? && Hardware::CPU.intel?
     bin.install "easy8-mcp" if OS.linux? && Hardware::CPU.arm?
     bin.install "easy8-mcp" if OS.linux? && Hardware::CPU.intel?
+    generate_completions_from_executable(bin/"easy8-mcp", shell_parameter_format: :clap)
 
     install_binary_aliases!
 
